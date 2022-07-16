@@ -203,7 +203,7 @@ class compression:
                                     long2=len(size_data3)
                                     Deep=long2//28
                                     times2=Deep
-                                    long_block=long2//8
+                                    long_block=long2//4
                                     Where5=0
                                 
                                     
@@ -428,7 +428,7 @@ class compression:
                                                 raise SystemExit
                                                                                         
                                                                                        
-                                                                                    
+                                                                     #               
                                         add_bits118=""
                                         count_bits=40-lenf%40
                                         z=0
