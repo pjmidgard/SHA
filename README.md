@@ -1,7 +1,7 @@
 # SHA
 SHA
 
-Program
+Programs
 
 Algorithm SHA:
 
