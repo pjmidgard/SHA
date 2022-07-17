@@ -682,6 +682,10 @@ class compression:
                                                                     
                                                                     
                                     size_data11=add_bits118+size_data11
+                                    key=len(size_data11)
+                                    if key>160:
+                                    	print("Key is too big, but file has encrypted.")
+                                    
                                     
                                     
                                     n = int(size_data11, 2)
