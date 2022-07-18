@@ -598,16 +598,16 @@ class compression:
                                         
                                         long_file=len(size_data10)
                                         long_after=len(size_data9)
-                                        #print(long_after) 
+                                        print(long_after) 
                                        
-                                        if long_file>long_after and long_after<=long_file//10 or lenf>39 or long_block>=long_after and long_after<=long_file//10:
+                                        if long_file>long_after and long_after<=900 or lenf>39 or long_block>=long_after and long_after<=900:
                                            
                                             size_data11=size_data9
                                             Find_guess=1
                                             times_of_times=times_of_times+1
                                         elif long_file>long_after:
                                             size_data3=size_data9
-                                            long_block=long_block+1
+                                            long_block=long_after//32
                                             times_of_times=times_of_times+1
                                             size_data9=""
                                             size_data19=""
@@ -618,7 +618,7 @@ class compression:
                                                
                                         elif long_file<=long_after:
                                             size_data3=size_data9
-                                            long_block=long_block+1
+                                            long_block=long_after//32
                                             times_of_times=times_of_times+1
                                             size_data9=""
                                             size_data19=""
