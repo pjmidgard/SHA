@@ -226,8 +226,8 @@ class compression:
                                                     end=blocks
                                                     
                                                     find_matches1_number1=0
-                                                    find_matches1_number2=0
-                                                    find_matches1_number3=0   
+                                                
+                                                       
                                                     
                                                     predict=predict+1
                                                     if predict==16:
@@ -682,9 +682,8 @@ class compression:
                                                                     
                                                                     
                                     size_data11=add_bits118+size_data11
-                                    key=len(size_data11)
-                                    if key>160:
-                                    	print("Key is too big, but file has encrypted.")
+                                    
+                                    
                                     
                                     
                                     
@@ -715,8 +714,7 @@ class compression:
 
     def cryptograpy_unpack(self):                      
                  if namez=="e":
-                    corridors=0
-                    cor=7
+                    
                     name = input("What is name of file? ")
                     if os.path.exists(name):
                             print('Path is exists!')
@@ -872,19 +870,98 @@ class compression:
                                 lenf2=len(size_data2)  
                                 x4=1
                                 if x4==1:
-                                
-                                    
-                                    size_data3=size_data2
-                                    Times_extract_of_times=size_data3[0:40]
-                                    size_data3=size_data3[40:]
-                                    Times_extract_number=0
-                                    Times_extract_number=int(Times_extract_of_times,2)
-                                    Time_extract=0
-                                    Times_extract=Times_extract_number
-                              
+
+
+                                    if size_data3[0:9]=="000000001":
+                                        size_data3=size_data3[9:]
+                                    elif size_data3[0:8]=="00000001":
+                                        size_data3=size_data3[8:]
+                                    elif size_data3[0:7]=="0000001":
+                                        size_data3=size_data3[7:]
+                                    elif size_data3[0:6]=="000001":
+                                        size_data3=size_data3[6:]
+                                    elif size_data3[0:5]=="00001":
+                                        size_data3=size_data3[5:]
+                                    elif size_data3[0:4]=="0001":
+                                        size_data3=size_data3[4:]
+                                    elif size_data3[0:3]=="001":
+                                        size_data3=size_data3[3:]
+                                    elif size_data3[0:2]=="01":
+                                        size_data3=size_data3[2:]
+                                    elif size_data3[0:1]=="1":
+                                        size_data3=size_data3[1:]
+
+                                    Times_extract_of_time_zeroes=size_data3[:6]
+                                    times_of_times=int(Times_extract_of_time_zeroes,2)
+                                    size_data=size_data3[6:]
+
+                                    Forty_bits=40
+                                    Times_bits=Forty_bits-times_of_times
+
+                                    Times_extract_of_time_times=size_data3[:Times_bits]
+                                    Times_extract_of_time_times_number=int(Times_extract_of_time_times,2)
+                                    size_data=size_data3[Times_bits:]
+
                                        
                                     Times_count=0
-                                    while Times_extract<=Times_count:
+                                    while Times_extract_of_time_times_number!=Times_count:
+
+
+
+                                        Long_block2_not_compress_zeroes=size_data3[:6]
+                                        Long_block2_not_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
+                                        size_data=size_data3[6:]
+
+                                        Forty_bits=40
+                                        Times_bits=Forty_bits-Long_block2_not_compress_zeroes_number
+
+                                        Not_compress_size_of_block=size_data3[:Times_bits]
+                                        Not_compress_size_of_block_number=int(Not_compress_size_of_block,2)
+                                        size_data=size_data3[Times_bits:]
+
+
+                                        Long_block2_compress_zeroes=size_data3[:6]
+                                        Long_block2_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
+                                        size_data=size_data3[6:]
+
+                                        Forty_bits=40
+                                        Times_bits=Forty_bits-Long_block2_compress_zeroes_number
+
+                                        compress_size_of_block=size_data3[:Times_bits]
+                                        compress_size_of_block_number=int(compress_size_of_block,2)
+                                        size_data=size_data3[Times_bits:]
+
+
+                                        Times_zeroes=size_data3[:6]
+                                        Times_zeroes_number=int(Times_zeroes,2)
+                                        size_data=size_data3[6:]
+
+                                        Forty_bits=40
+                                        Times_bits=Forty_bits-Times_zeroes_number
+
+                                        Times_zeroes_size_of_block=size_data3[:Times_bits]
+                                        Times_zeroes_size_of_block_number=int(Times_zeroes_size_of_block,2)
+                                        size_data=size_data3[Times_bits:]
+                                    
+
+                                        if size_data3[0:9]=="000000001":
+                                            size_data3=size_data3[9:]
+                                        elif size_data3[0:8]=="00000001":
+                                            size_data3=size_data3[8:]
+                                        elif size_data3[0:7]=="0000001":
+                                            size_data3=size_data3[7:]
+                                        elif size_data3[0:6]=="000001":
+                                            size_data3=size_data3[6:]
+                                        elif size_data3[0:5]=="00001":
+                                            size_data3=size_data3[5:]
+                                        elif size_data3[0:4]=="0001":
+                                            size_data3=size_data3[4:]
+                                        elif size_data3[0:3]=="001":
+                                            size_data3=size_data3[3:]
+                                        elif size_data3[0:2]=="01":
+                                            size_data3=size_data3[2:]
+                                        elif size_data3[0:1]=="1":
+                                            size_data3=size_data3[1:]
 
                                         Blocks_long=size_data3[0:40]
                                         size_data3=size_data3[40:]
@@ -984,16 +1061,14 @@ class compression:
                                           
                                         
                                             start=-1
-                                            while  times_compression<=times2:
+                                            while  times_compression!=Times_zeroes_size_of_block_number:
 
                                                         start=0
                                                         blocks=Blocks_long_number
                                                         end=blocks
                                                         
                                                         find_matches1_number1=0
-                                                        find_matches1_number2=0
-                                                        find_matches1_number3=0   
-                                                        
+                                                       
                                                         
                                                         
                                                                                                      
@@ -1017,11 +1092,13 @@ class compression:
                                                             
                                                         Infromation_program=Binary_code
                                                         Long_Info=len(Infromation_program)
+
+                                                        Blocks_count=0
                                                         
-                                                        while block<=long:
+                                                        while block<long:
                                                                                     str_find_tree_maches1=size_data3[block:block+blocks]
                                                                                     sub_info="01"
-                                                                                    
+                                                                                    Blocks_count=Blocks_count+1
 
                                                                                     find_matches1=str_find_tree_maches1.find(sub_info, start, end)
                                                                                     find_matches1_1=int(find_matches1)
@@ -1035,27 +1112,19 @@ class compression:
                                                                                         Program_code1=Infromation_program[Program:Program+1]
                                                                                         if Program_code1=="1":
                                                                                             Program=Program+1
-                                                                                            Program_code_6_bits=Infromation_program[Program:Program+6]
-                                                                                            Binary_code1=Program_code_6_bits+Binary_code1
-                                                                                            Program=Program+6
-                                                                                            Program_code_6_bits_binary=int(Program_code_6_bits,2)
-                                                                                            Secret_code=Infromation_program[Program:Program+Program_code_6_bits_binary]
-                                                                                            Binary_code1=Secret_code+Binary_code1
-                                                                                            
-                                                                                            Program=Program+Program_code_6_bits_binary
-                                                                                            Sixtythree=63
-                                                                                            Left=0
-                                                                                            Left=Sixtythree-Program_code_6_bits_binary
-                                                                                            Secret_left=Infromation_program[Program:Program+Left]
-                                                                                            Binary_code1=Secret_left+Binary_code1
-                                                                                            Binary_code2=Secret_left+Binary_code2
-                                                                                            
+                                                                                            Not_compress_block_01=Infromation_program[:6]
+                                                                                            Not_compress_block_01_number=int(Not_compress_block_01,2)
+                                                                                            Infromation_program=Infromation_program[6:]
 
-                                                                                            Have_number=int(Binary_code2,2)
-                                                                                          
-                                                                                            Infromation_program=Infromation_program[Program+Left:]
+                                                                                            Sixty_bits=63
+                                                                                            Times_bits=Sixty_bits-Not_compress_block_01_numbers
+
+                                                                                            Not_compress_block_01_number_size_of_block=Infromation_program[:Times_bits]
+                                                                                            Times_zeroes_size_of_block_number=int(Not_compress_block_01_number_size_of_block,2)
+                                                                                            size_data=size_data3[Times_bits:]
+                                
                                                                                 
-                                                                                    if find_matches1_1==0 and block!=Have_number:
+                                                                                    if find_matches1_1==0 and Blocks_count!=Times_zeroes_size_of_block_number:
                                                                                         size_data4=str_find_tree_maches1[:0]+b+str_find_tree_maches[2:]
                                                                                         size_data12=size_data12+size_data4
                                                                                         
