@@ -871,7 +871,7 @@ class compression:
                                 x4=1
                                 if x4==1:
 
-
+                                    size_data3=size_data2
                                     if size_data3[0:9]=="000000001":
                                         size_data3=size_data3[9:]
                                     elif size_data3[0:8]=="00000001":
@@ -892,6 +892,8 @@ class compression:
                                         size_data3=size_data3[1:]
 
                                     Times_extract_of_time_zeroes=size_data3[:6]
+                                    #print(Times_extract_of_time_zeroes)
+                                    
                                     times_of_times=int(Times_extract_of_time_zeroes,2)
                                     size_data=size_data3[6:]
 
@@ -910,6 +912,7 @@ class compression:
 
                                         Long_block2_not_compress_zeroes=size_data3[:6]
                                         Long_block2_not_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
+                                        #print(Long_block2_not_compress_zeroes_number)
                                         size_data=size_data3[6:]
 
                                         Forty_bits=40
@@ -1061,7 +1064,7 @@ class compression:
                                           
                                         
                                             start=-1
-                                            while  times_compression!=Times_zeroes_size_of_block_number:
+                                            while  times_compression<=Times_zeroes_size_of_block_number:
 
                                                         start=0
                                                         blocks=Blocks_long_number
@@ -1096,7 +1099,7 @@ class compression:
                                                         Blocks_count=0
                                                         
                                                         while block<long:
-                                                                                    str_find_tree_maches1=size_data3[block:block+blocks]
+                                                                                    str_find_tree_maches1=size_data3[block:block+compress_size_of_block_number]
                                                                                     sub_info="01"
                                                                                     Blocks_count=Blocks_count+1
 
@@ -1129,14 +1132,14 @@ class compression:
                                                                                         size_data12=size_data12+size_data4
                                                                                         
                                                                                        
-                                                                                        blocks2=blocks-2
+                                                                                        blocks2=Not_compress_size_of_block_number
                                                                                         
                                                                                     else:
                                                                                         size_data4=str_find_tree_maches1
                                                                                         size_data12=size_data12+size_data4
                                                                                         
                                                                                         
-                                                                                        blocks2=blocks
+                                                                                        blocks2=compress_size_of_block_number
                                                                                         
                                                                                     
                                                                                     block=block+blocks2
@@ -1144,7 +1147,7 @@ class compression:
                                                         times_compression=times_compression+1
                                                         #print(times_compression)
                                                         size_data3=size_data12
-                                                        print(size_data12)
+                                                        #print(size_data12)
                                                         
                                                         
                                                         
