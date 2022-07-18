@@ -895,14 +895,14 @@ class compression:
                                     #print(Times_extract_of_time_zeroes)
                                     
                                     times_of_times=int(Times_extract_of_time_zeroes,2)
-                                    size_data=size_data3[6:]
+                                    size_data3=size_data3[6:]
 
                                     Forty_bits=40
                                     Times_bits=Forty_bits-times_of_times
 
                                     Times_extract_of_time_times=size_data3[:Times_bits]
                                     Times_extract_of_time_times_number=int(Times_extract_of_time_times,2)
-                                    size_data=size_data3[Times_bits:]
+                                    size_data3=size_data3[Times_bits:]
 
                                        
                                     Times_count=0
@@ -913,38 +913,38 @@ class compression:
                                         Long_block2_not_compress_zeroes=size_data3[:6]
                                         Long_block2_not_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
                                         #print(Long_block2_not_compress_zeroes_number)
-                                        size_data=size_data3[6:]
+                                        size_data3=size_data3[6:]
 
                                         Forty_bits=40
                                         Times_bits=Forty_bits-Long_block2_not_compress_zeroes_number
 
                                         Not_compress_size_of_block=size_data3[:Times_bits]
                                         Not_compress_size_of_block_number=int(Not_compress_size_of_block,2)
-                                        size_data=size_data3[Times_bits:]
+                                        size_data3=size_data3[Times_bits:]
 
 
                                         Long_block2_compress_zeroes=size_data3[:6]
                                         Long_block2_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
-                                        size_data=size_data3[6:]
+                                        size_data3=size_data3[6:]
 
                                         Forty_bits=40
                                         Times_bits=Forty_bits-Long_block2_compress_zeroes_number
 
                                         compress_size_of_block=size_data3[:Times_bits]
                                         compress_size_of_block_number=int(compress_size_of_block,2)
-                                        size_data=size_data3[Times_bits:]
+                                        size_data3=size_data3[Times_bits:]
 
 
                                         Times_zeroes=size_data3[:6]
                                         Times_zeroes_number=int(Times_zeroes,2)
-                                        size_data=size_data3[6:]
+                                        size_data3=size_data3[6:]
 
                                         Forty_bits=40
                                         Times_bits=Forty_bits-Times_zeroes_number
 
                                         Times_zeroes_size_of_block=size_data3[:Times_bits]
                                         Times_zeroes_size_of_block_number=int(Times_zeroes_size_of_block,2)
-                                        size_data=size_data3[Times_bits:]
+                                        size_data3=size_data3[Times_bits:]
                                     
 
                                         if size_data3[0:9]=="000000001":
@@ -1016,22 +1016,7 @@ class compression:
                                         elif size_data3[0:1]=="1":
                                             size_data3=size_data3[1:]
 
-
-                                        open_binary_code_01=size_data3[0:40]
-                                       
-                                        
-                                        open_binary_code_01_number=int(open_binary_code_01,2)
-                                        
-                                        size_data3=size_data3[40:]
-                                        long_open_binary_code=open_binary_code_01_number
-                                        Infromation_program=size_data3[:long_open_binary_code]
-                                        Program=0
-                                        Binary_code=""
-                                        size_data3=size_data3[long_open_binary_code:]
-                                        Binary_code=Infromation_program
-
-                                                
-                                                   
+    
 
                                         extract=0
                                         
@@ -1097,6 +1082,8 @@ class compression:
                                                         Long_Info=len(Infromation_program)
 
                                                         Blocks_count=0
+
+                                                        size_data3=size_data3[1:]
                                                         
                                                         while block<long:
                                                                                     str_find_tree_maches1=size_data3[block:block+compress_size_of_block_number]
@@ -1124,7 +1111,7 @@ class compression:
 
                                                                                             Not_compress_block_01_number_size_of_block=Infromation_program[:Times_bits]
                                                                                             Times_zeroes_size_of_block_number=int(Not_compress_block_01_number_size_of_block,2)
-                                                                                            size_data=size_data3[Times_bits:]
+                                                                                            Infromation_program=Infromation_program[Times_bits:]
                                 
                                                                                 
                                                                                     if find_matches1_1==0 and Blocks_count!=Times_zeroes_size_of_block_number:
