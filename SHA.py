@@ -203,7 +203,7 @@ class compression:
                                     long2=len(size_data3)
                                     Deep=long2//28
                                     times2=Deep
-                                    long_block=long2//4
+                                    long_block=long2//32
                                     Where5=0
                                 
                                     
@@ -214,7 +214,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  times_compression>=times2 or len(size_data3)>=184:
+                                        while  times_compression>=times2 or len(size_data3)>=long_block*2 or len(size_data3)<=long_block:
 
 
                                                     
@@ -600,7 +600,7 @@ class compression:
                                         long_after=len(size_data9)
                                         #print(long_after) 
                                        
-                                        if long_file>long_after and long_after<=120 or lenf>39 or long_block>=long_after and long_after<=152:
+                                        if long_file>long_after and long_after<=long_file//10 or lenf>39 or long_block>=long_after and long_after<=long_file//10:
                                            
                                             size_data11=size_data9
                                             Find_guess=1
