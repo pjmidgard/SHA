@@ -600,7 +600,7 @@ class compression:
                                         long_after=len(size_data9)
                                         #print(long_after) 
                                        
-                                        if long_file>long_after and long_after<=904 or lenf>39 or long_block>=long_after and long_after<=904:
+                                        if long_file>long_after and long_after<=900 or lenf>39 or long_block>=long_after and long_after<=900:
                                            
                                             size_data11=size_data9
                                             Find_guess=1
@@ -1085,7 +1085,7 @@ class compression:
 
                                                         size_data3=size_data3[1:]
                                                         
-                                                        while block<long:
+                                                        while block<=long:
                                                                                     str_find_tree_maches1=size_data3[block:block+compress_size_of_block_number]
                                                                                     sub_info="01"
                                                                                     Blocks_count=Blocks_count+1
@@ -1189,7 +1189,7 @@ class compression:
                                             x3=x2-x
                                             return print(x3)
 
- 
+ hi
                   
 self=""                                
 d=compression()
