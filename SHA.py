@@ -1189,7 +1189,7 @@ class compression:
                                             x3=x2-x
                                             return print(x3)
 
- hi
+
                   
 self=""                                
 d=compression()
